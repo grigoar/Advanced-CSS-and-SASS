@@ -1,0 +1,28 @@
+/* Normalize is not longer needed */
+
+/* resetting the properties for all the browsers */
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  /* better practice */
+  box-sizing: inherit;
+}
+
+/* root  elements*/
+
+html {
+  /* we use 10px for 1rem for having simple calculations :D */
+  /* nice technique */
+  /* it is bad practice to put a magic value because it will override the capability of the user to change the font=> so we use percent of the default value(16px)=10px */
+  //what 1rem is
+  font-size: 62.5%;
+  /* font-size: 10px; */
+}
+
+body {
+  //the typography moved into typography
+  box-sizing: border-box;
+}
