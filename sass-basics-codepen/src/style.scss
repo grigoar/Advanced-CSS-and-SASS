@@ -1,0 +1,135 @@
+*{
+  margin:0;
+  padding:0;
+}
+//--------------------------variables and nesting
+//--------------------------mixins extends and functions
+$color-primary:#f9ed69; //yellow color
+$color-secondary: #f08a5d;//organge
+$color-tertiary: #b83b5e;//pink
+$color-text-dark: #333;
+$color-text-light:#eee;
+
+$width-button:150px;
+
+//super variable mixin
+@mixin clearfix{
+   &::after{
+    content:"";
+    clear:both;
+    display:table;
+  }
+}
+//passing variables as a parameter
+//For DRY principle
+@mixin style-link-text($color){
+  text-decoration:none;
+  text-transform:uppercase;
+  color:$color;
+}
+
+//functions
+@function divide($a, $b){
+  @return $a/$b;
+}
+
+nav{
+  // margin:30px;
+  margin: divide(60,2) * 1px;//30px
+  background-color:$color-primary;
+  
+  //the after clears the float
+  //we need to use that because the height of the element collapsed when using floats
+  // &::after{
+  //   content:"";
+  //   clear:both;
+  //   display:table;
+  // }
+  @include clearfix;
+}
+
+// .clearfix::after{
+//   content:"";
+//   clear:both;
+//   display:table;
+// }
+// nav::after{
+//   content:"";
+//   clear:both;
+//   display:table;
+// }
+
+.navigation{
+  list-style:none;
+   float:left;
+  
+  //nested selectors = .navigation li{}
+  li{
+    display:inline-block;
+    margin-left:30px;
+    //replace the navigation li
+    //"&" write the selector path until this point
+    //.navigation li:first-child
+    &:first-child{
+    margin:0;
+    }
+    
+    //.navigation li a
+    a {
+      // text-decoration:none;
+      // text-transform:uppercase;
+      // color:$color-text-dark;
+      @include style-link-text($color-text-dark);
+    } 
+  }  
+}
+
+.buttons{
+    float:right;
+  
+  }
+
+//extends get rid of too many selectors
+%btn-placeholder{
+  padding:10px;
+  display:inline-block;
+  text-align:center;
+  border-radius:100px;
+  width:$width-button;
+  @include style-link-text($color-text-light);
+}
+
+.btn-main:link,
+.btn-hot:link{
+  // padding:10px;
+  // display:inline-block;
+  // text-align:center;
+  // border-radius:100px;
+  // width:$width-button;
+  // // text-decoration:none;
+  // // text-transform:uppercase;
+  // // color:$color-text-light;
+  // @include style-link-text($color-text-light);
+  
+}
+
+.btn-main{
+  &:link{
+    @extend %btn-placeholder;
+    background-color:$color-secondary;
+  }
+  &:hover{
+    //making the collor a little bit darker
+    background-color: darken($color-secondary,15%);
+  }
+}
+.btn-hot{
+  &:link{
+    @extend %btn-placeholder;
+    background-color:$color-tertiary;
+  }
+  &:hover{
+    //making the collor a little bit darker
+    background-color: lighten($color-tertiary,10%);
+  }
+}

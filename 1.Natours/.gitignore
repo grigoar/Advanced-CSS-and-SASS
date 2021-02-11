@@ -1,0 +1,13 @@
+#Images ignored
+*.orig
+/node_modules/
+/dist/
+/.cache/
+package-lock.json
+/.parcel-cache/
+/jsx/node_modules/
+*.env
+youtube.js
+api.js
+api-key.js
+/ReactToReview/
