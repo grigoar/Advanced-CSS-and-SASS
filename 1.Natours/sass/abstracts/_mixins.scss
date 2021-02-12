@@ -1,0 +1,10 @@
+@mixin clearfix {
+  &::after {
+    //we need to use a content so that the pseudo element is processed
+    content: "";
+    //this is the standard way to to this
+    display: table;
+    //this will clear the both ways, both left or right floats
+    clear: both;
+  }
+}
