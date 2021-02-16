@@ -29,6 +29,8 @@ html {
   //   font-size: 50%;
   // }
 
+  //ORDER : BASe +trypography >general layout +grid >page layout >components
+
   //scalling the font-size instead of default 1rem=10px we define the size 1rem= <10 , >10
   // @include respond(phone) {
   //   font-size: 50%;
@@ -52,5 +54,10 @@ html {
 
 body {
   //the typography moved into typography
+
   box-sizing: border-box;
+  padding: 3rem;
+  @include respond(tab-port) {
+    padding: 0;
+  }
 }
