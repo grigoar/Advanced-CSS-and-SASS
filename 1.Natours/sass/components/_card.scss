@@ -192,7 +192,9 @@
   ////////////////////////////////////////
 
   //////////////////////////////////////
-  @include respond(tab-port) {
+  // @include respond(tab-port) {
+  //if the elements can't be hovered the media query is applied => this is for the large tablets (hover:none / hover:hover)
+  @media only screen and (max-width: 56.25em), only screen and (hover: none) {
     height: auto;
     border-radius: 3px;
     background-color: $color-white;
