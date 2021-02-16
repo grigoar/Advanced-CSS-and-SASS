@@ -1,0 +1,67 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+.container{
+   background-color:#ccc;
+  padding:10px;
+  height: 1000px;
+  
+  display:flex;
+  /*reverse the main axis and other posibilities*/
+/*   flex-direction:row-reverse; */
+/*    flex-direction:column; */
+/*   flex-direction:column-reverse; */
+  flex-direction: row;
+/*   flex-direction: column; */
+  /*   justify-content: space-between;
+  justify-content: space-around;
+  justify-content: space-evenly; */
+/*   justify-content: center; */
+/*  arrange the elemtns along the cross axis, the default is to stretch the items */
+/*   align-items:stretch; */
+  justify-content: space-between;
+  align-items:center;
+/*   align-items:baseline; */
+  flex-wrap:wrap;
+/*   align the rows so that they are ordered at start */
+  align-content:flex-start;
+}
+
+.item{
+  background-color:#f1425d;
+  padding:30px;
+  margin:30px;
+  color:#fff;
+  font-size:40px;
+  
+/*   occupy all the space that they can */
+/*   flex-grow:1; */
+/*   flex:1; */
+}
+.i2{
+  height:200px;
+/*   flex-grow:3; */
+/*   flex:3; */
+/*    set the elements width*/
+/*   flex-basis: 20%; */
+/*   flex-basis: 300px; */
+/*    the element is not allowed to be shrinked => 0, 1 allowe*/
+/*   flex-shrink:0; */
+/*   we can combine them into flex : flex-grow flex-shrink flex-basis*/
+  flex:0 1 300;
+}
+
+/* the default order is 0 */
+.i4{
+/*   font-size: 80px; */
+/*   align-self:flex-end; */
+/*   align-self:stretch; */
+  order: -1;
+}
+.i3{
+  flex:1;
+  order:1;
+}
