@@ -1,0 +1,61 @@
+.container{
+  width: 1000px;
+  margin:30px auto;
+  background-color:#ddd;
+  
+  display:grid;
+  // grid-template-rows: 150px 150px;
+  //the first 4 grid cells are called explicit grid
+  // grid-template-rows: repeat(2,150px);
+  // grid-template-columns: repeat(2,1fr);
+  grid-gap:30px;
+  
+  
+  //can set the height for the rows for the implicit grid
+  grid-auto-rows:80px;
+  //automatically added as rows
+  // grid-auto-flow: column;
+  //if we don't want gaps inside the grid(automatically aranged by the algorithm)
+  grid-auto-flow: row dense;
+  grid-auto-columns: .5fr;
+  
+  //---------------Align grid items to grid areas
+  //align items is set by default set with the value stretch 
+  // align-items: center;//center/ stretch/end/start
+  //align the items orizonataly
+  //this doesn't exist for flexbox
+  // justify-items: end;//stretch/start/end/center
+  // align-items: stretch;
+  height:1000px;
+  //Align grid tracks to grid container
+  grid-template-rows: repeat(2,100px);
+  grid-template-columns: repeat(2,100px);
+  
+  
+  justify-content: center;//center/start/end/space-between/space-around/space-evenly
+  align-content:center;
+  .item{
+    padding: 10px;
+    color:white;
+    font-family: sans-serif;
+    font-size:30px;
+    background-color:orangered;
+    
+    &--4{
+      background-color: crimson;
+      grid-row:2 /span 3;
+      //this overrides the align-items
+      // align-self: start;
+      // justify-self:start;
+    }
+    &--6{
+      background-color: lightcoral;
+      grid-row: 2 / span 2;
+    }
+    &--7{
+      background-color: palevioletred;
+      grid-column: 1/-1;
+    }
+  }
+  
+}
