@@ -6,6 +6,10 @@
   grid-template-columns: repeat(8, 1fr);
   //through experimentation
   grid-template-rows: repeat(7, 5vw);
+
+  //grid-template: grid-template-rows / grid-template-columns
+  // grid-template: repeat(7, 5vw) / repeat(8, 1fr);
+
   grid-gap: 1.5rem;
   padding: 1.5rem;
 
